@@ -5,6 +5,7 @@
 
 extern "C" __declspec(dllexport) void StartProtection(){
     MessageBoxA(0, "start Protection", "info", 0); 
+    killFuncs();
 }
 
 DWORD WINAPI StartFunction(LPVOID lpParam){

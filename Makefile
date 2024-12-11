@@ -4,6 +4,8 @@ CXXFLAGS = -I./include
 
 TARGET = bin\protection.dll
 
+LDFLAGS = -lpsapi
+
 SRCS = $(wildcard src/*.cpp)
 
 OBJS = $(SRCS:src/%.cpp=build/%.o)
@@ -11,7 +13,7 @@ OBJS = $(SRCS:src/%.cpp=build/%.o)
 all: build bin $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -shared -o $(TARGET) $(OBJS)
+	$(CXX) $(CXXFLAGS) -shared -o $(TARGET) $(OBJS) $(LDFLAGS)
 
 build/%.o: src/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
